@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Data Structures Visualiser</title>
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="brand">
+    <button type="button" class="lang-toggle" id="lang-toggle" data-i18n="lang.switch" data-i18n-attr="title:lang.title,aria-label:lang.title" title="Switch to Arabic" aria-label="Switch to Arabic">العربية</button>
+    <div class="brand-text">
+      <h1 data-i18n="brand.title">Data Structures Visualiser</h1>
+      <p data-i18n="brand.list">Stack · Linear Queue · Circular Queue · Singly Linked List · Doubly Linked List</p>
+    </div>
+  </div>
+  <p class="topbar-note" data-i18n="brand.note">Same operations as the C++ classes in the parent folder, one method at a time.</p>
+</header>
+
+<nav class="tabs" id="tabs" role="tablist" aria-label="Choose a data structure" data-i18n-attr="aria-label:tabs.aria"></nav>
+
+<main class="layout">
+
+  <section class="panel controls">
+    <h2 data-i18n="panel.operations">Operations</h2>
+
+    <div class="field">
+      <label for="value" data-i18n="panel.value">Value</label>
+      <input id="value" type="text" inputmode="numeric" autocomplete="off" placeholder="auto: 10">
+    </div>
+
+    <div class="field capacity-row" id="capacity-row" hidden>
+      <label for="capacity" data-i18n="panel.capacity">Capacity</label>
+      <input id="capacity" type="number" min="2" max="12" step="1" value="6">
+    </div>
+
+    <div class="op-group" data-kind="add">
+      <h3 data-i18n="group.add">Add</h3>
+      <div class="op-buttons"></div>
+    </div>
+
+    <div class="op-group" data-kind="del">
+      <h3 data-i18n="group.del">Delete</h3>
+      <div class="op-buttons"></div>
+    </div>
+
+    <div class="op-group" data-kind="inspect">
+      <h3 data-i18n="group.inspect">Inspect</h3>
+      <div class="op-buttons"></div>
+    </div>
+
+    <div class="manage">
+      <button type="button" class="op op-manage" id="fill" data-i18n="btn.fill">Fill random</button>
+      <button type="button" class="op op-manage is-danger" id="clear" data-i18n="btn.clear">Clear</button>
+    </div>
+
+    <details class="cpp">
+      <summary data-i18n="cpp.summary">C++ class behind this tab</summary>
+      <pre id="cpp-source"></pre>
+    </details>
+  </section>
+
+  <section class="panel stage" id="stage">
+    <div class="stage-head">
+      <h2 id="stage-title">Stack</h2>
+      <p id="stage-tagline"></p>
+    </div>
+    <div class="viz-wrap" id="viz"></div>
+    <p class="insight" id="insight"></p>
+  </section>
+
+  <section class="panel state">
+    <h2 data-i18n="panel.state">Current state</h2>
+    <div class="chips" id="chips"></div>
+    <h3 data-i18n="panel.raw">Memory + display() output</h3>
+    <pre class="raw" id="raw"></pre>
+  </section>
+
+  <section class="panel log-panel">
+    <h2 data-i18n="panel.log">Operation log</h2>
+    <ol class="log" id="log"></ol>
+  </section>
+
+</main>
+
+<script src="js/i18n.js"></script>
+<script src="js/structures.js"></script>
+<script src="js/catalog.js"></script>
+<script src="js/renderers.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
